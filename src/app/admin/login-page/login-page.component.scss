@@ -1,0 +1,15 @@
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+h4 {
+  text-align: center;
+}
+#toast-container {
+  background-color: #dc3545;
+  color: white;
+}
+form .form-control label > span {
+  color: black;
+}

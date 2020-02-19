@@ -1,0 +1,25 @@
+<app-alert></app-alert>
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <a routerLink="/">Angular Admin </a>
+      <ul *ngIf="auth.isAuthenticated()" id="nav-mobile" class="right hide-on-med-and-down">
+        <li routerLinkActive="active" >
+          <a [routerLink]="['/admin', 'dashboard']">Главная</a>
+        </li>
+        <li routerLinkActive="active" >
+          <a [routerLink]="['/admin', 'create']">Создать</a>
+        </li>
+        <li> <a href="#" (click)="logout($event)" >Выйти</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+
+
+
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

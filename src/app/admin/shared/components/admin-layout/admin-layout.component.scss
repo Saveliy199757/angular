@@ -1,0 +1,11 @@
+#toast-container .toast {
+  background-color: #dc3545;
+  color: white;
+}
+#toast-container .toast span {
+  transform: rotate(45deg);
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}

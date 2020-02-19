@@ -1,0 +1,47 @@
+<form class="card" [formGroup]="form" (ngSubmit)="submit()">
+  <h4>Войти</h4>
+<div *ngIf="auth.error$ | async as error">
+  <a id="toast-container" class="toast" >{{error}} </a>
+</div>
+  <div class="form-control"
+  [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}"
+  >
+    <label for="email" > Email </label>
+    <input id="email" type="email" formControlName="email">
+    <div
+      *ngIf="form.get('email').touched && form.get('email').invalid"
+      class="validation">
+      <small
+      *ngIf="form.get('email').errors.required"
+      >Введите email</small>
+      <small
+        *ngIf="form.get('email').errors.email"
+      >Некоректный email</small>
+    </div>
+  </div>
+  <div class="form-control"
+       [ngClass]="{invalid: form.get('password').touched && form.get('password').invalid}"
+  >
+    <label for="password" > Пароль  <span *ngIf="langifrus">| ru</span>
+      <span *ngIf="langifen">| en</span></label>
+    <input id="password" type="password" [(ngModel)]="lang" (input)="change(lang)"  formControlName="password">
+    <span ></span>
+    <div class="validation"
+    *ngIf="form.get('password').touched && form.get('password').invalid"
+    >
+      <small
+        *ngIf="form.get('password').errors.required"
+      >Введите пароль</small>
+      <small
+        *ngIf="form.get('password').errors.minlength"
+      >Пароль слишком короткий, текушая длина {{form.value.password.length}}, должно быть {{form.get('password').errors.minlength.requiredLength}}</small>
+    </div>
+  </div>
+
+  <button
+    type="submit" class="btn btn-primary"
+    [disabled]="form.invalid || submitted"
+  >Войти</button>
+</form>
+
+
